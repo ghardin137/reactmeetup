@@ -5,7 +5,7 @@ const CONTENTFUL_PREVIEW_KEY = process.env.CONTENTFUL_PREVIEW_KEY ? process.env.
 const BRANCH = process.env.BRANCH | "DEVELOP";
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Lorem Ipsum Dolor Me!',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

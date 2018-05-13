@@ -1,31 +1,29 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { ThemeProvider } from 'emotion-theming'
+import theme from '../theme'
 
-import Header from '../components/header'
+import Header from '../components/common/header'
+import Footer from "../components/common/footer"
+import SiteContainer from "../components/common/site_container";
 import './index.css'
 
 const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
+  <ThemeProvider theme={theme}>
+    <SiteContainer>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <Header siteTitle={data.site.siteMetadata.title} />
       {children()}
-    </div>
-  </div>
+      <Footer siteTitle={data.site.siteMetadata.title} />
+    </SiteContainer>
+  </ThemeProvider>
 )
 
 Layout.propTypes = {

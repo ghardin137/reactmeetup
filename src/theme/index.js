@@ -1,6 +1,6 @@
 // @flow
 const variables = {
-    primary: '',
+    primary: 'blue',
     secondary: '',
     tertiary: '',
     white: '#fcfcfc',

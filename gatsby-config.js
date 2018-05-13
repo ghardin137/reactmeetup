@@ -9,37 +9,5 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-react-next`,
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: CONTENTFUL_SPACE_ID,
-        accessToken: BRANCH === 'master' ? CONTENTFUL_API_KEY : CONTENTFUL_PREVIEW_KEY,
-        host: BRANCH !== 'master' ? "preview.contentful.com" : "cdn.contentful.com"
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              // Class prefix for <pre> tags containing syntax highlighting;
-              // defaults to 'language-' (eg <pre class="language-js">).
-              // If your site loads Prism into the browser at runtime,
-              // (eg for use with libraries like react-live),
-              // you may use this to prevent Prism from re-processing syntax.
-              // This is an uncommon use-case though;
-              // If you're unsure, it's best to use the default value.
-              classPrefix: "language-",
-            },
-          },
-        ],
-      },
-    },
   ],
 }

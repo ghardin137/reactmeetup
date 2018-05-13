@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
     align-items: center;
 
     a {
-        color: ${props => props.theme.black};
+        color: ${props => props.theme.primary};
         text-decoration: none;
     }
 

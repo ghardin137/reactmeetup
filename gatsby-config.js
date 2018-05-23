@@ -5,7 +5,7 @@ const CONTENTFUL_PREVIEW_KEY = process.env.CONTENTFUL_PREVIEW_KEY ? process.env.
 const BRANCH = process.env.BRANCH | "DEVELOP";
 module.exports = {
   siteMetadata: {
-    title: 'Lorem Ipsum Dolor Me!',
+    title: 'Prelim Sumo',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

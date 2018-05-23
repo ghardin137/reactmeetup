@@ -2,16 +2,39 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
 
+import theme from '../../../theme';
+import Logo from '../icons/logo'
+
 const HeaderContainer = styled.header`
     padding: 20px;
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: ${props => props.theme.tertiary};
 
     a {
         color: ${props => props.theme.primary};
         text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: 30px;
+            margin-left: 10px;
+        }
+
+        svg {
+            fill: ${props => props.theme.primary}
+        }
+
+        &:hover {
+            color: ${props => props.theme.secondary};
+
+            svg {
+                fill: ${props => props.theme.secondary};
+            }
+        }
     }
 
     ul {
@@ -29,13 +52,10 @@ const HeaderContainer = styled.header`
 
 const Header = ({ siteTitle }) => (
   <HeaderContainer>
-    <div>
-      <h4>
-        <Link to="/">
-          {siteTitle}
-        </Link>
-      </h4>
-    </div>
+    <Link to="/">
+        <Logo color={theme.primary} /> 
+        <span>{siteTitle}</span>
+    </Link>
     <ul>
         <li>
             <Link to="/blog">Blog</Link>

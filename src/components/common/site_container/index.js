@@ -7,7 +7,6 @@ const SiteContainer = styled.div`
   font-family: ${props => props.theme.bodyFont};
   background-color: ${props => props.theme.white};
   color: ${props => props.theme.black};
-  overflow-x: hidden;
   position: relative;
   width: 100%;
   max-width: 1370px;

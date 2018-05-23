@@ -5,11 +5,12 @@ import { format, parse } from 'date-fns'
 
 const BlogPostSummaryContainer = styled.li`
     padding-bottom: 20px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 
     a {
-        color: ${props => props.theme.black};
+        color: ${props => props.theme.primary};
         text-decoration: none;
     }
 

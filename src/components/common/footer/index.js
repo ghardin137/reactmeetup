@@ -9,13 +9,15 @@ const FooterContainer = styled.footer`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    color: ${props => props.theme.primary};
+    background-color: ${props => props.theme.tertiary};
 
     a {
-        color: ${props => props.theme.black};
+        color: ${props => props.theme.primary};
         text-decoration: none;
 
         &:hover {
-            color: ${props => props.theme.primary};
+            color: ${props => props.theme.secondary};
         }
     }
 
@@ -28,6 +30,10 @@ const FooterContainer = styled.footer`
 
         li {
             margin-left: 20px;
+
+            &:first-child {
+                margin-left: 0;
+            }
         }
     }
     

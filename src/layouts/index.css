@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700|Sunflower:300,500');
 /*!
  * Bootstrap Reboot v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -12,7 +13,7 @@
  }
  
  html {
-   font-family: sans-serif;
+   font-family: 'Sunflower', sans-serif;
    line-height: 1.15;
    -webkit-text-size-adjust: 100%;
    -ms-text-size-adjust: 100%;
@@ -32,13 +33,12 @@
  
  body {
    margin: 0;
-   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    font-size: 1rem;
-   font-weight: 400;
+   font-weight: 300;
    line-height: 1.5;
-   color: #212529;
+   color: #303030;
    text-align: left;
-   background-color: #fff;
+   background-color: #fcfcfc;
    width: 100%;
    height: 100%;
  }
@@ -56,6 +56,8 @@
  h1, h2, h3, h4, h5, h6 {
    margin-top: 0;
    margin-bottom: 0.5rem;
+   font-family: 'Arvo', serif;
+   font-weight: normal;
  }
  
  p {

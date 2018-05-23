@@ -7,6 +7,7 @@ const Field = styled.div`
   margin-bottom: 20px;
   margin-left: 24px;
   margin-right: 24px;
+  width: 50%;
 
   @media (min-width: 768px) {
     margin-left: 0;

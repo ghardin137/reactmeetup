@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
+import theme from '../../../theme';
 
 const FooterContainer = styled.footer`
     padding: 20px;
@@ -50,13 +51,16 @@ const Footer = ({ siteTitle }) => (
   <FooterContainer>
     <ul>
         <li>
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog" activeStyle={{color: theme.secondary}}>Blog</Link>
         </li>
         <li>
-            <Link to="/about">About</Link>
+            <Link to="/live-page" activeStyle={{color: theme.secondary}}>Live Generator</Link>
         </li>
         <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/about" activeStyle={{color: theme.secondary}}>About</Link>
+        </li>
+        <li>
+            <Link to="/contact" activeStyle={{color: theme.secondary}}>Contact</Link>
         </li>
     </ul>
     <div>

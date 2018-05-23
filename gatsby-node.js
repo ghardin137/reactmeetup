@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const BlogPost = path.resolve(`./src/components/pages/blog_post/index.js`);
         const Contact = path.resolve(`./src/components/pages/contact/index.js`);
         const Page = path.resolve(`./src/components/pages/page/index.js`);
+        const LivePage = path.resolve(`./src/components/pages/live-page/index.js`);
         // Query for markdown nodes to use in creating pages.
         graphql(
         `
@@ -59,6 +60,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                         break;
                     case "Contact":
                         component = slash(Contact);
+                        break;
+                    case "Live":
+                        component = slash(LivePage);
                         break;
                     default: 
                         component = slash(Page);

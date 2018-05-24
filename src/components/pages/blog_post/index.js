@@ -5,6 +5,8 @@ import css from 'emotion'
 import PageBody from '../../common/page_body'
 import { parse, format } from 'date-fns'
 
+const onClick = (e) => console.log(e.target);
+
 const BlogPost = ({ data }) => (
     <PageBody>
         { !data.loading ? 
@@ -14,11 +16,10 @@ const BlogPost = ({ data }) => (
                 { data.post.postImage ?
                     <img src={data.post.postImage.file.url} />
                 : null }
-                <div dangerouslySetInnerHTML={{ __html: data.post.body.childMarkdownRemark.html }}/>
-
+                <div css={{flexGrow: 1}} dangerouslySetInnerHTML={{ __html: data.post.body.childMarkdownRemark.html }}/>
                 <div css={{display: "flex", justifyContent: "space-around", marginBottom:20}}>
-                {data.prev ? <Link to={`/blog/${format(parse(data.prev.updatedAt), "YYYY-MM-DD")}/${data.prev.slug}`}>&laquo; {data.prev.postTitle}</Link> : <span/> }
-                {data.next ? <Link to={`/blog/${format(parse(data.next.updatedAt), "YYYY-MM-DD")}/${data.next.slug}`}>{data.next.postTitle} &raquo;</Link> : null }
+                {data.prev ? <Link to={`/blog/${format(parse(data.prev.updatedAt), "YYYY-MM-DD")}/${data.prev.slug}`}>&laquo; Newer: {data.prev.postTitle}</Link> : <span/> }
+                {data.next ? <Link to={`/blog/${format(parse(data.next.updatedAt), "YYYY-MM-DD")}/${data.next.slug}`}>Older: {data.next.postTitle} &raquo;</Link> : null }
                 </div>
             </Fragment>
         : null }

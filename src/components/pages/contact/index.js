@@ -88,6 +88,7 @@ class ContactPage extends React.Component {
                     action="/contact/"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
+                    css={{ width: "100%"}}
                     onSubmit={this.handleSubmit}>
                       <p hidden>
                         <label>

@@ -16,6 +16,7 @@ const Field = styled.div`
 
   label {
     font-size: 16px;
+    width: 100%;
   }
 
   input, textarea {

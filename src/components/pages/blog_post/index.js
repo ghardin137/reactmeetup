@@ -1,18 +1,25 @@
 import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
+import css from 'emotion'
 import PageBody from '../../common/page_body'
+import { parse, format } from 'date-fns'
 
 const BlogPost = ({ data }) => (
     <PageBody>
         { !data.loading ? 
             <Fragment>
                 <h1>{data.post.postTitle}</h1>
-                <div>{data.post.author.name}</div>
+                <div css={{marginBottom: 20}}>{data.post.author.name} - {format(parse(data.post.updatedAt),"MMMM DD, YYYY")}</div>
                 { data.post.postImage ?
                     <img src={data.post.postImage.file.url} />
                 : null }
                 <div dangerouslySetInnerHTML={{ __html: data.post.body.childMarkdownRemark.html }}/>
+
+                <div css={{display: "flex", justifyContent: "space-around", marginBottom:20}}>
+                {data.prev ? <Link to={`/blog/${format(parse(data.prev.updatedAt), "YYYY-MM-DD")}/${data.prev.slug}`}>&laquo; {data.prev.postTitle}</Link> : <span/> }
+                {data.next ? <Link to={`/blog/${format(parse(data.next.updatedAt), "YYYY-MM-DD")}/${data.next.slug}`}>{data.next.postTitle} &raquo;</Link> : null }
+                </div>
             </Fragment>
         : null }
     </PageBody>
@@ -42,10 +49,12 @@ export const pageQuery = graphql`
     }
     next: contentfulBlogPost(id: { eq: $next }) {
         slug
+        updatedAt
         postTitle
     }
     prev: contentfulBlogPost(id: { eq: $prev }) {
         slug
+        updatedAt
         postTitle
     }
   }

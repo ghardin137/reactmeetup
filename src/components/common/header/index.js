@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
+import tinycolor from 'tinycolor2';
 
 import theme from '../../../theme';
 import Logo from '../icons/logo'
@@ -14,7 +15,7 @@ const HeaderContainer = styled.header`
     background-color: ${props => props.theme.tertiary};
 
     a {
-        color: ${props => props.theme.primary};
+        color: ${props => tinycolor(props.theme.primary).darken(15).toHexString()};
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -22,6 +23,7 @@ const HeaderContainer = styled.header`
         span {
             font-size: 30px;
             margin-left: 10px;
+            color: ${props => props.theme.primary};
         }
 
         svg {
@@ -29,10 +31,14 @@ const HeaderContainer = styled.header`
         }
 
         &:hover {
-            color: ${props => props.theme.secondary};
+            color: ${props => props.theme.primary};
 
             svg {
-                fill: ${props => props.theme.secondary};
+                fill: ${props => tinycolor(props.theme.primary).darken(15).toHexString()};
+            }
+
+            span {
+                color: ${props => tinycolor(props.theme.primary).darken(15).toHexString()};
             }
         }
     }
@@ -58,16 +64,16 @@ const Header = ({ siteTitle }) => (
     </Link>
     <ul>
         <li>
-            <Link to="/blog" activeStyle={{color: theme.secondary}}>Blog</Link>
+            <Link to="/blog" activeStyle={{color: theme.primary}}>Blog</Link>
         </li>
         <li>
-            <Link to="/live-page" activeStyle={{color: theme.secondary}}>Live Generator</Link>
+            <Link to="/live-page" activeStyle={{color: theme.primary}}>Live Generator</Link>
         </li>
         <li>
-            <Link to="/about" activeStyle={{color: theme.secondary}}>About</Link>
+            <Link to="/about" activeStyle={{color: theme.primary}}>About</Link>
         </li>
         <li>
-            <Link to="/contact" activeStyle={{color: theme.secondary}}>Contact</Link>
+            <Link to="/contact" activeStyle={{color: theme.primary}}>Contact</Link>
         </li>
     </ul>
   </HeaderContainer>

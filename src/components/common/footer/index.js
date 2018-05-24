@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
 import theme from '../../../theme';
+import tinycolor from "tinycolor2";
 
 const FooterContainer = styled.footer`
     padding: 20px;
@@ -10,15 +11,15 @@ const FooterContainer = styled.footer`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    color: ${props => props.theme.primary};
+    color: ${props => tinycolor(props.theme.primary).darken(15).toHexString()};
     background-color: ${props => props.theme.tertiary};
 
     a {
-        color: ${props => props.theme.primary};
+        color: ${props => tinycolor(props.theme.primary).darken(15).toHexString()};
         text-decoration: none;
 
         &:hover {
-            color: ${props => props.theme.secondary};
+            color: ${props => props.theme.primary};
         }
     }
 
@@ -51,16 +52,16 @@ const Footer = ({ siteTitle }) => (
   <FooterContainer>
     <ul>
         <li>
-            <Link to="/blog" activeStyle={{color: theme.secondary}}>Blog</Link>
+            <Link to="/blog" activeStyle={{color: theme.primary}}>Blog</Link>
         </li>
         <li>
-            <Link to="/live-page" activeStyle={{color: theme.secondary}}>Live Generator</Link>
+            <Link to="/live-page" activeStyle={{color: theme.primary}}>Live Generator</Link>
         </li>
         <li>
-            <Link to="/about" activeStyle={{color: theme.secondary}}>About</Link>
+            <Link to="/about" activeStyle={{color: theme.primary}}>About</Link>
         </li>
         <li>
-            <Link to="/contact" activeStyle={{color: theme.secondary}}>Contact</Link>
+            <Link to="/contact" activeStyle={{color: theme.primary}}>Contact</Link>
         </li>
     </ul>
     <div>

@@ -10,7 +10,7 @@ const BlogPostSummaryContainer = styled.li`
     flex-direction: column;
 
     a {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.secondary};
         text-decoration: none;
     }
 

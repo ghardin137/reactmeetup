@@ -13,6 +13,7 @@ const BlogPost = ({ data }) => (
             <Fragment>
                 <h1>{data.post.postTitle}</h1>
                 <div css={{marginBottom: 20}}>{data.post.author.name} - {format(parse(data.post.updatedAt),"MMMM DD, YYYY")}</div>
+                <cite>{data.post.whereISawIt ? `${data.post.whereISawIt.lat}, ${data.post.whereISawIt.lon}` : null }</cite>
                 { data.post.postImage ?
                     <img src={data.post.postImage.file.url} />
                 : null }
@@ -46,6 +47,10 @@ export const pageQuery = graphql`
         file {
           url
         }
+      }
+      whereISawIt {
+        lon
+        lat
       }
     }
     next: contentfulBlogPost(id: { eq: $next }) {
